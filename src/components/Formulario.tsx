@@ -5,7 +5,7 @@ import { sendClient } from "../utils/requestForms"
 import { useNavigate } from "react-router-dom"
 import Loader from './Loader'
 interface Props {
-  client: {
+  client?: {
     name: string,
     company: string,
     email: string,
@@ -13,7 +13,7 @@ interface Props {
     notes: string,
     id: number,
   },
-  loading: boolean,
+  loading?: boolean,
 }
 const Formulario = ({ client, loading }: Props) => {
   const navigate = useNavigate()
@@ -109,5 +109,6 @@ const Formulario = ({ client, loading }: Props) => {
 
 Formulario.defaultProps = {
   client: null,
+  loading: false,
 }
 export default Formulario

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import Formulario from '../components/Formulario'
 import { useParams } from 'react-router-dom'
 import FormAlert from '../components/FormAlert'
-
+import { clientsUrl } from '../utils/requestForms'
 const EditClient = () => {
   const [client, setClient] = useState<any | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
@@ -12,7 +12,7 @@ const EditClient = () => {
   useEffect(() => {
     const getClient = async () => {
       try {
-        const req = await fetch(`http://localhost:4000/clientes/${id}`)
+        const req = await fetch(`${clientsUrl}/${id}`)
         const res = await req.json()
         setClient(res)
       } catch (error) {

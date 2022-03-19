@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom"
 import Loader from '../components/Loader'
+import { clientsUrl } from '../utils/requestForms'
 
 const ViewClient = () => {
   const [client, setClient] = useState<any | null>(null)
@@ -11,7 +12,7 @@ const ViewClient = () => {
   useEffect(() => {
     const getClient = async () => {
       try {
-        const req = await fetch(`http://localhost:4000/clients/${id}`)
+        const req = await fetch(`${clientsUrl}/${id}`)
         const res = await req.json()
         setClient(res)
       } catch (error) {

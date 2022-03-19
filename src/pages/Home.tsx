@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import Client from "../components/Client"
 import { deleteClient } from "../utils/requestForms"
+import { clientsUrl } from "../utils/requestForms"
 
 const Home = () => {
   const [clients, setClients] = useState([])
@@ -8,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const getClient = async () => {
       try {
-        const req = await fetch('http://localhost:4000/clients')
+        const req = await fetch(clientsUrl)
         const res = await req.json()
         if (res) setClients(res)
       } catch (error) {
@@ -22,7 +23,7 @@ const Home = () => {
 
     deleteClient(id)
 
-    const filteringClients = clients.filter((client) => client.id !== id)
+    const filteringClients = clients.filter((client: any) => client?.id !== id)
     setClients(filteringClients)
   }
   return (
