@@ -6,11 +6,13 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "tailwind:watch": "git remote add origin git@github.com:Josenegrin/clients-crm.git"
+    "tailwind:watch": "npx tailwindcss -i ./src/index.css -o ./src/dist/output.css --watch",
+    "jsonServer": "json-server --watch db.json --port 4000"
   },
   "dependencies": {
     "autoprefixer": "^10.4.2",
     "formik": "^2.2.9",
+    "json-server": "^0.17.0",
     "postcss": "^8.4.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
