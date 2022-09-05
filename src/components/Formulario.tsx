@@ -29,7 +29,7 @@ const Formulario = ({ client, loading }: Props) => {
 
   const handleSubmit = (values: any) => {
     sendClient(values)
-    navigate('/clients')
+    navigate('/')
   }
 
 
