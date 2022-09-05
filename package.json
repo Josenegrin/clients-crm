@@ -10,7 +10,8 @@
     "tailwind:watch": "npx tailwindcss -i ./src/index.css -o ./src/dist/output.css --watch",
     "jsonServer": "json-server --watch db.json --port 4000",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && gh-pages -d dist"
+
   },
   "dependencies": {
     "autoprefixer": "^10.4.8",
